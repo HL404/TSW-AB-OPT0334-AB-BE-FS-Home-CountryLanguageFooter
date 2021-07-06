@@ -1,1 +1,152 @@
-//TlIqCustm={targetwhitelist:["login_status","site_country","trueclient_ip","server","tealium_environment","site_language","page_name","channel","site_indicator","tealium_profile","time_stamp","loyalty_tier","loyalty_id","loyalty_balance","gd_treatment_code","lowest_selling_fare_price","matrix_fare_types","upsell_offers","upsell_price_percent","trip_aircraft_type","reaccom_alternate_flights_count","reaccom_event_type","reaccom_process_status","flown_status","ancillary_product_offer_name","true_ond","trip_type","ticket_type","route_type","search_advanced_days","trip_status","matrix_fare_types","cabin_type"],abdTrgActUdo:[],setAdbTrgUdo:function(e){for(var t in e)e[t]in utag_data&&this.abdTrgActUdo.push(e[t]+"="+utag_data[e[t]])},trgGetOffer:function(e){e=e||{};var t="undefined"!=typeof utag_data_trackcalls_merged?utag_data_trackcalls_merged:utag_data;jQuery.extend(t,e),adobe.target.getOffer({mbox:"target-global-mbox",params:JSON.parse(JSON.stringify(t,this.targetwhitelist)),success:function(e){adobe.target.applyOffer({mbox:"target-global-mbox",offer:e})},error:function(e,t){},timeout:5e3})},atxhr:function(e,t){jQuery(document).ajaxSuccess(function(i,o,r){r.url.indexOf(e)>-1&&t()})},poll:function(e,t,i,o,r){var a=Number(new Date)+(o||5e3);r=r||100,function o(){e()?t():Number(new Date)<a?setTimeout(o,r):i()}()},domCheck:function(e){if(jQuery.isEmptyObject(e))return!1;for(var t=0;t<e.length;t++)if(!e[t].length)return!1;return!0},ckz:{errTgck:function(e,t){var i=e.slice(0,1)+t+"_"+e.slice(2,e.length);this.cookieAppend("tgck",i,"|")},cookieExists:function(e){var t=!1;return document.cookie.indexOf(e+"=")>-1&&(t=!0),t},cookieValueExists:function(e,t,i,o){o=o||!1;var r=!1;if(this.cookieExists(e)){var a=this.readCookie(e).split(i);if(o){for(var n in a)if(a[n].indexOf(t)>-1)return r=!0}else for(var s in a)if(a[s]==t)return r=!0}return r},removeCookie:function(e){document.cookie=e+"=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;"},cookieAppend:function(e,t,i,o){var r="";o=o||0;var a="";if(this.cookieCleanse(e,i,o),r=this.cookieExists(e)?this.readCookie(e)+i+t:t,0==o)document.cookie=e+"="+r+";path=/";else{var n=new Date;n.setTime(n.getTime()+24*o*60*60*1e3),a="expires="+n.toGMTString()+";",document.cookie=e+"="+r+";expires="+a+"path=/"}},readCookie:function(e){var t=document.cookie.match("(^|;) ?"+e+"=([^;]*)(;|$)");return t?t[2]:null},removeCookieValue:function(e,t,i,o,r){if(r=r||0,this.cookieExists(e)){this.cookieCleanse();var a=this.readCookie(e),n=a.split(i);if(n=!1===o?n.filter(function(e){return e!==t}):n.filter(function(e){return e.indexOf(t)<0}),this.removeCookie(e),n.length>0)for(var s in n)this.cookieAppend(e,n[s],i,o,r)}},replaceCookieValue:function(e,t,i,o,r,a){if(a=a||0,this.cookieCleanse(e,o,a),this.cookieValueExists(e,t,o,r)){this.removeCookieValue(e,t,o,r,a);var n=this.readCookie(e)+o+i;this.removeCookie("tgck"),this.cookieAppend(e,n,o,a)}},cookieCleanse:function(e,t,i){if(i=i||0,this.cookieExists(e))if("dltr"===this.readCookie(e))this.removeCookie(e);else{var o=this.readCookie(e);(o=(o=o.replace(/\s/g,"")).replace(/(\W)\1+/g,function(e,t){return t[0]}))[0]===t&&(o=o.slice(1,o.length)),o[o.length-1]===t&&(o=o.slice(0,o.length-1)),this.removeCookie(e),i>0?this.cookieAppend(e,o,t,i):this.cookieAppend(e,o,t)}}}},TlIqCustm.setAdbTrgUdo(TlIqCustm.targetwhitelist),targetPageParams=function(){return TlIqCustm.abdTrgActUdo};
+if (typeof TlIqCustm !== 'undefined') {
+	//add relevant files to git
+	
+	//create the child object if does not exist
+	if(typeof TlIqCustm.ChangeFlightsPhaseTwo === 'undefined'){
+
+		try {
+
+			TlIqCustm.ChangeFlightsPhaseTwo = {
+	
+	
+				d_cookie: 'AD_OPT0337_ChangeResUITweak_ChangeTripAndText_June2021',
+				e_cookie: 'AE_OPT0337_ChangeResUITweak_ChangeTripAndText_June2021',
+				o_cookie: 'AO_OPT0337_ChangeResUITweak_ChangeTripAndText_June2021',
+	
+				cookie: 'A_OPT0337_ChangeResUITweak_ChangeTripAndText_June2021',
+	
+				setCookie: function (cookie) {
+					if (!TlIqCustm.ckz.cookieValueExists('tgck', cookie, '|', false)) {
+						TlIqCustm.ckz.cookieAppend('tgck', cookie, '|');
+					}
+				},
+	
+	
+				//the dom check array
+				dom_check: [],
+	
+				//push objects to the dom check array
+				initDomCheck: function () {
+					this.dom_check.push(jQuery('body'));
+					this.dom_check.push(jQuery('#aa-footer'));
+				},
+	
+				//build content if needed
+				ataPrep: function () {
+                    
+				},
+
+
+                aa: function(){
+
+                    var dropdown = ''
+                    // dropdown += ''
+                    // dropdown += '<form name="form1" id="form1" action="/action_page.php">'
+                    // dropdown += '<select name="subject" id="subject">'
+                    // dropdown += '<option value="" selected="selected">'
+                    // dropdown += '<img alt="United States" src="/content/images/chrome/rebrand/aa-icons-flags-sprite.png">English'
+                    // dropdown += '</option>'
+                    // dropdown += '<option value="">Spanish</option>'
+                    // dropdown += '<option value="">French</option>'
+                    // dropdown += '</select>'
+                    // dropdown += '</form>'
+
+
+                    
+                    jQuery('#aa-footer').append(dropdown)
+                    
+                },
+
+
+				//main 
+				ataMain: function () {
+					try {
+	
+						this.initDomCheck();
+						if (TlIqCustm.domCheck(this.dom_check)) {
+							//do stuff
+
+                            
+
+							this.setCookie(this.cookie);
+						}
+						else {
+							TlIqCustm.ChangeFlightsPhaseTwo.setCookie(TlIqCustm.ChangeFlightsPhaseTwo.d_cookie);
+						}
+	
+	
+					}
+	
+					catch (e) {
+						TlIqCustm.ChangeFlightsPhaseTwo.setCookie(TlIqCustm.ChangeFlightsPhaseTwo.e_cookie);
+	
+						console.log('ata_failure');
+	
+						console.log("error object:");
+						console.log(e);
+						console.log();
+	
+						console.log("error object toString():");
+						console.log("\t" + e.toString());
+	
+						console.log();
+						console.log("error object attributes: ");
+						console.log('\tname: ' + e.name + ' message: ' + e.message + ' at: ' + e.at + ' text: ' + e.text);
+	
+						console.log();
+						console.log("error object stack: ");
+						console.log(e.stack);
+	
+					}
+				}
+			};
+	
+			TlIqCustm.ChangeFlightsPhaseTwo.ataPrep();
+			
+			TlIqCustm.poll(
+				function () {
+					//return the page load confirmation conditional
+					return jQuery('#aa-footer').length > 0;
+				},
+				function () {
+					//execute main function upon success
+					TlIqCustm.ChangeFlightsPhaseTwo.ataMain();
+				},
+				function () {
+					//otherwise log OOO cookie on failure
+					TlIqCustm.ChangeFlightsPhaseTwo.setCookie(TlIqCustm.ChangeFlightsPhaseTwo.o_cookie);
+				}
+			);
+	
+	
+		}
+	
+		catch (e) {
+			//use the hard coded error cookie value here, in place of 'error_cookie'
+			if (!TlIqCustm.ckz.cookieValueExists('tgck', 'AE_OPT0337_ChangeResUITweak_ChangeTripAndText_June2021', '|', false)) {
+				TlIqCustm.ckz.cookieAppend('tgck', 'AE_OPT0337_ChangeResUITweak_ChangeTripAndText_June2021', '|');
+			}
+	
+			console.log('ata_failure');
+	
+			console.log("error object:");
+			console.log(e);
+			console.log();
+	
+			console.log("error object toString():");
+			console.log("\t" + e.toString());
+	
+			console.log();
+			console.log("error object attributes: ");
+			console.log('\tname: ' + e.name + ' message: ' + e.message + ' at: ' + e.at + ' text: ' + e.text);
+	
+			console.log();
+			console.log("error object stack: ");
+			console.log(e.stack);
+	
+		}
+
+	}
+	
+}
+

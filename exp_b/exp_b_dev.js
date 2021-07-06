@@ -1,1 +1,166 @@
-//TlIqCustm={targetwhitelist:["login_status","site_country","trueclient_ip","server","tealium_environment","site_language","page_name","channel","site_indicator","tealium_profile","time_stamp","loyalty_tier","loyalty_id","loyalty_balance","gd_treatment_code","lowest_selling_fare_price","matrix_fare_types","upsell_offers","upsell_price_percent","trip_aircraft_type","reaccom_alternate_flights_count","reaccom_event_type","reaccom_process_status","flown_status","ancillary_product_offer_name","true_ond","trip_type","ticket_type","route_type","search_advanced_days","trip_status","matrix_fare_types","cabin_type"],abdTrgActUdo:[],setAdbTrgUdo:function(e){for(var t in e)e[t]in utag_data&&this.abdTrgActUdo.push(e[t]+"="+utag_data[e[t]])},trgGetOffer:function(e){e=e||{};var t="undefined"!=typeof utag_data_trackcalls_merged?utag_data_trackcalls_merged:utag_data;jQuery.extend(t,e),adobe.target.getOffer({mbox:"target-global-mbox",params:JSON.parse(JSON.stringify(t,this.targetwhitelist)),success:function(e){adobe.target.applyOffer({mbox:"target-global-mbox",offer:e})},error:function(e,t){},timeout:5e3})},atxhr:function(e,t){jQuery(document).ajaxSuccess(function(i,o,r){r.url.indexOf(e)>-1&&t()})},poll:function(e,t,i,o,r){var a=Number(new Date)+(o||5e3);r=r||100,function o(){e()?t():Number(new Date)<a?setTimeout(o,r):i()}()},domCheck:function(e){if(jQuery.isEmptyObject(e))return!1;for(var t=0;t<e.length;t++)if(!e[t].length)return!1;return!0},ckz:{errTgck:function(e,t){var i=e.slice(0,1)+t+"_"+e.slice(2,e.length);this.cookieAppend("tgck",i,"|")},cookieExists:function(e){var t=!1;return document.cookie.indexOf(e+"=")>-1&&(t=!0),t},cookieValueExists:function(e,t,i,o){o=o||!1;var r=!1;if(this.cookieExists(e)){var a=this.readCookie(e).split(i);if(o){for(var n in a)if(a[n].indexOf(t)>-1)return r=!0}else for(var s in a)if(a[s]==t)return r=!0}return r},removeCookie:function(e){document.cookie=e+"=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;"},cookieAppend:function(e,t,i,o){var r="";o=o||0;var a="";if(this.cookieCleanse(e,i,o),r=this.cookieExists(e)?this.readCookie(e)+i+t:t,0==o)document.cookie=e+"="+r+";path=/";else{var n=new Date;n.setTime(n.getTime()+24*o*60*60*1e3),a="expires="+n.toGMTString()+";",document.cookie=e+"="+r+";expires="+a+"path=/"}},readCookie:function(e){var t=document.cookie.match("(^|;) ?"+e+"=([^;]*)(;|$)");return t?t[2]:null},removeCookieValue:function(e,t,i,o,r){if(r=r||0,this.cookieExists(e)){this.cookieCleanse();var a=this.readCookie(e),n=a.split(i);if(n=!1===o?n.filter(function(e){return e!==t}):n.filter(function(e){return e.indexOf(t)<0}),this.removeCookie(e),n.length>0)for(var s in n)this.cookieAppend(e,n[s],i,o,r)}},replaceCookieValue:function(e,t,i,o,r,a){if(a=a||0,this.cookieCleanse(e,o,a),this.cookieValueExists(e,t,o,r)){this.removeCookieValue(e,t,o,r,a);var n=this.readCookie(e)+o+i;this.removeCookie("tgck"),this.cookieAppend(e,n,o,a)}},cookieCleanse:function(e,t,i){if(i=i||0,this.cookieExists(e))if("dltr"===this.readCookie(e))this.removeCookie(e);else{var o=this.readCookie(e);(o=(o=o.replace(/\s/g,"")).replace(/(\W)\1+/g,function(e,t){return t[0]}))[0]===t&&(o=o.slice(1,o.length)),o[o.length-1]===t&&(o=o.slice(0,o.length-1)),this.removeCookie(e),i>0?this.cookieAppend(e,o,t,i):this.cookieAppend(e,o,t)}}}},TlIqCustm.setAdbTrgUdo(TlIqCustm.targetwhitelist),targetPageParams=function(){return TlIqCustm.abdTrgActUdo};
+if ('undefined' != typeof TlIqCustm && void 0 === TlIqCustm.countryLanguageSelector)
+	try {
+		(TlIqCustm.countryLanguageSelector = {
+			d_cookie: 'BD_OPT0310_HomeRedesignCountryLanguage_Test_Mar2021',
+			e_cookie: 'BE_OPT0310_HomeRedesignCountryLanguage_Test_Mar2021',
+			o_cookie: 'BO_OPT0310_HomeRedesignCountryLanguage_Test_Mar2021',
+			cookie: 'B_OPT0310_HomeRedesignCountryLanguage_Test_Mar2021',
+			setCookie: function (e) {
+				TlIqCustm.ckz.cookieValueExists('tgck', e, '|', !1) ||
+					TlIqCustm.ckz.cookieAppend('tgck', e, '|');
+			},
+			dom_check: [],
+			loop: 0,
+			loop_max: 10,
+			initDomCheck: function () {
+				this.dom_check.push(jQuery('body')),
+					this.dom_check.push(jQuery('#countrySelector')),
+					this.dom_check.push(jQuery('#aa-footer'));
+			},
+			isTablet: function () {
+				return 'undefined' != typeof $device && !0 === $device.tablet;
+			},
+			isDesktop: function () {
+				return 'undefined' != typeof $device && !0 === $device.desktop;
+			},
+
+			moveSection: function () {
+				// jQuery('#aa-footer > div.container > div.social').attr('Style', 'margin-top:20px'),
+				// 	jQuery('#aa-footer > div.container > div.left').attr('Style', 'margin-top:20px'),
+
+				// <div id="language-selector" data-behavior="dropdown-wrapper" class="js-dropdown-wrapper">
+				//     <a href="#" data-behavior="dropdown-trigger" class="js-dropdown-trigger">
+				//         <span class="aa-language-select-indicator">
+				//             <img alt="United States" src="/content/images/chrome/rebrand/aa-icons-flags-sprite.png">
+				//         </span>
+				//         English
+				//         <img alt="Click to change language and/or country / region" src="/content/images/chrome/rebrand/down-arrow.png" class="dropdown-indicator">
+				//     </a>
+				// </div>
+				// <div data-behavior="dropdown-panel" style="display: none;" class="js-dropdown-panel">
+
+				//     jQuery('#splashForm')
+				// </div>
+
+				// <script>
+				//     function deleteBackCall() {
+				//         window.history.pushState("", "", '/homePage.do');
+				//     }
+				// </script>
+
+				//     </li>
+				var temp =
+					'<li id="countrySelector" class="menu-item-utility is-hidden-mobile   js-dropdown" data-behavior="dropdown">';
+				temp +=
+					'<div id="    " data-behavior="dropdown-wrapper" class="js-dropdown-wrapper" style="border: 1px solid rgb(0, 70, 127); border-radius: 3px; width: 195px; padding: 0px;">';
+				temp +=
+					'<a href="#" data-behavior="dropdown-trigger" class="js-dropdown-trigger" style="text-align: left; color: rgb(0, 70, 127); font-size: 12px; font-weight: bold; padding: 10px 15px; background-color: transparent; width: 195px;">';
+				temp +=
+					'<span class="aa-language-select-indicator" style="width: calc(22px); height: calc(18px); border-radius: 3px; margin-right: 10px;">';
+				temp +=
+					'<img alt="United States" src="/content/images/chrome/rebrand/aa-icons-flags-sprite.png" style="margin-top: -3.5px; margin-left: -151px;">';
+				temp += '</span>';
+				temp += 'English';
+				temp +=
+					'<img alt="Click to change language and/or country / region" src="/content/images/chrome/rebrand/down-arrow.png" class="dropdown-indicator" style="margin: 7px 3px; padding: 0px; float: right; width: 10px;">';
+				temp += '</a>';
+				temp += '</div>';
+				temp +=
+					'<div data-behavior="dropdown-panel" style="display: none;" class="js-dropdown-panel">';
+
+				temp += '</div>';
+				jQuery('.js-dropdown-panel').append(jQuery('#splashForm'));
+				temp += '</li>';
+
+				var countrySelector = jQuery('#countrySelector');
+				jQuery('.js-dropdown-wrapper').css({
+					border: '1px solid rgb(0, 70, 127)',
+					'border-radius': '3px',
+					width: '240px',
+					height: '50px',
+					padding: '0px',
+				});
+				jQuery('.js-dropdown-trigger').css({
+					'text-align': 'left',
+					color: 'rgb(0, 70, 127)',
+					'font-size': '12px',
+					'font-weight': 'bold',
+					padding: '10px 15px',
+					'background-color': 'transparent',
+					width: '195px',
+				});
+
+				jQuery('#aa-footer').prepend('<hr style="margin-top:40px;">');
+				jQuery('#aa-footer').prepend('<hr style="margin-top:40px;">');
+				jQuery('#aa-footer').prepend(jQuery('js-dropdown-panel'));
+				jQuery('#aa-footer').prepend(temp), jQuery('.js-dropdown-panel').remove();
+				jQuery('#aa-footer').prepend(countrySelector),
+					setTimeout(function () {
+						TlIqCustm.poll(
+							function () {
+								return (
+									'195px' !==
+									jQuery(
+										'li#countrySelector a.js-dropdown-trigger[data-behavior="dropdown-trigger"]'
+									).css('width')
+								);
+							},
+							function () {
+								// TlIqCustm.countryLanguageSelector.changeCSS(),
+								TlIqCustm.countryLanguageSelector.setCookie(
+									TlIqCustm.countryLanguageSelector.cookie
+								);
+							},
+							function () {}
+						);
+					}, 500);
+			},
+
+			ataMain: function () {
+				if (
+					TlIqCustm.countryLanguageSelector.isDesktop() ||
+					TlIqCustm.countryLanguageSelector.isTablet()
+				)
+					try {
+						this.initDomCheck(),
+							TlIqCustm.domCheck(this.dom_check)
+								? TlIqCustm.countryLanguageSelector.moveSection()
+								: TlIqCustm.countryLanguageSelector.setCookie(
+										TlIqCustm.countryLanguageSelector.d_cookie
+								  );
+					} catch (e) {
+						TlIqCustm.countryLanguageSelector.setCookie(TlIqCustm.countryLanguageSelector.e_cookie);
+					}
+			},
+		}),
+			TlIqCustm.poll(
+				function () {
+					return (
+						jQuery('#countrySelector').length &&
+						jQuery('#aa-footer > div.container > div.social').length
+					);
+				},
+				function () {
+					TlIqCustm.countryLanguageSelector.ataMain();
+				},
+				function () {
+					(TlIqCustm.countryLanguageSelector.isDesktop() ||
+						TlIqCustm.countryLanguageSelector.isTablet()) &&
+						TlIqCustm.countryLanguageSelector.setCookie(TlIqCustm.countryLanguageSelector.o_cookie);
+				}
+			);
+	} catch (e) {
+		(TlIqCustm.countryLanguageSelector.isDesktop() ||
+			TlIqCustm.countryLanguageSelector.isTablet()) &&
+			(TlIqCustm.ckz.cookieValueExists(
+				'tgck',
+				'BE_OPT0310_HomeRedesignCountryLanguage_Test_Mar2021',
+				'|',
+				!1
+			) ||
+				TlIqCustm.ckz.cookieAppend(
+					'tgck',
+					'BE_OPT0310_HomeRedesignCountryLanguage_Test_Mar2021',
+					'|'
+				));
+	}
