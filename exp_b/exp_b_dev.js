@@ -23,9 +23,7 @@ if ('undefined' != typeof TlIqCustm && void 0 === TlIqCustm.languageSelectorFoot
 			isDesktop: function () {
 				return 'undefined' != typeof $device && !0 === $device.desktop;
 			},
-
-			moveSection: function () {
-				var countrySelector = jQuery('#countrySelector');
+			changeCSS: function () {
 				jQuery('.js-dropdown-wrapper').css({
 					border: '1px solid #4A4A4A',
 					'border-radius': '3px',
@@ -47,32 +45,36 @@ if ('undefined' != typeof TlIqCustm && void 0 === TlIqCustm.languageSelectorFoot
 					left: '0px',
 					'min-width': '240px',
 				});
+				jQuery('.dropdown-indicator').css({ 'margin-left': '120px' });
+			},
+			moveSection: function () {
+				var countrySelector = jQuery('#countrySelector');
 
 				var div =
 					'<div id="languageSelector-footer" class="container" style="margin-bottom: 21px" />';
 				jQuery('#aa-footer').prepend(div);
 
-				jQuery('#languageSelector-footer').prepend(countrySelector),
-					jQuery('.dropdown-indicator').css({ 'margin-left': '120px' }),
-					setTimeout(function () {
-						TlIqCustm.poll(
-							function () {
-								return (
-									'195px' !==
-									jQuery(
-										'li#countrySelector a.js-dropdown-trigger[data-behavior="dropdown-trigger"]'
-									).css('width')
-								);
-							},
-							function () {
-								// TlIqCustm.languageSelectorFooterPhase2.changeCSS(),
-								TlIqCustm.languageSelectorFooterPhase2.setCookie(
-									TlIqCustm.languageSelectorFooterPhase2.cookie
-								);
-							},
-							function () {}
-						);
-					}, 500);
+				jQuery('#languageSelector-footer').prepend(countrySelector);
+
+				setTimeout(function () {
+					TlIqCustm.poll(
+						function () {
+							return (
+								'195px' !==
+								jQuery(
+									'li#countrySelector a.js-dropdown-trigger[data-behavior="dropdown-trigger"]'
+								).css('width')
+							);
+						},
+						function () {
+							TlIqCustm.languageSelectorFooterPhase2.changeCSS();
+							TlIqCustm.languageSelectorFooterPhase2.setCookie(
+								TlIqCustm.languageSelectorFooterPhase2.cookie
+							);
+						},
+						function () {}
+					);
+				}, 500);
 			},
 
 			ataMain: function () {
