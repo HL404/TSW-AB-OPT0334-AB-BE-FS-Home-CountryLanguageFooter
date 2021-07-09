@@ -45,7 +45,7 @@ if ('undefined' != typeof TlIqCustm && void 0 === TlIqCustm.languageSelectorFoot
 					left: '0px',
 					'min-width': '240px',
 				});
-				jQuery('.dropdown-indicator').css({ 'margin-left': '120px' });
+				jQuery('.dropdown-indicator').css({ 'margin-left': '120px', 'mix-blend-mode': 'multiply' });
 			},
 			moveSection: function () {
 				var countrySelector = jQuery('#countrySelector');
