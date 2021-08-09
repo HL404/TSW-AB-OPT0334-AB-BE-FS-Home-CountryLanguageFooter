@@ -24,14 +24,32 @@ if ('undefined' != typeof TlIqCustm && void 0 === TlIqCustm.languageSelectorFoot
 				return 'undefined' != typeof $device && !0 === $device.desktop;
 			},
 			changeCSS: function () {
-				jQuery('.js-dropdown-wrapper').css({
+				// jQuery('.js-dropdown-wrapper').css({
+				// 	border: '1px solid #4A4A4A',
+				// 	'border-radius': '3px',
+				// 	width: '240px',
+				// 	height: '50px',
+				// 	padding: '0px',
+				// });
+				jQuery('#countrySelector .js-dropdown-wrapper').css({
 					border: '1px solid #4A4A4A',
 					'border-radius': '3px',
 					width: '240px',
 					height: '50px',
 					padding: '0px',
+					'background-color': '#D0DAE0',
 				});
-				jQuery('.js-dropdown-trigger').css({
+
+				// jQuery('.js-dropdown-trigger').css({
+				// 	'text-align': 'left',
+				// 	color: '#4A4A4A',
+				// 	'font-size': '12px',
+				// 	'font-weight': 'bold',
+				// 	padding: '12px 15px',
+				// 	'background-color': '#D0DAE0',
+				// 	width: '240px',
+				// });
+				jQuery('#language-selector').find('.js-dropdown-trigger').css({
 					'text-align': 'left',
 					color: '#4A4A4A',
 					'font-size': '12px',
@@ -40,8 +58,11 @@ if ('undefined' != typeof TlIqCustm && void 0 === TlIqCustm.languageSelectorFoot
 					'background-color': '#D0DAE0',
 					width: '240px',
 				});
+
 				jQuery('.aa-language-select-indicator').find('img').css({ 'mix-blend-mode': 'multiply' });
-				jQuery('.js-dropdown-panel').css({
+
+				// jQuery('.js-dropdown-panel').css({
+				jQuery('#countrySelector').find('.js-dropdown-panel').css({
 					left: '0px',
 					'min-width': '240px',
 				});
@@ -56,25 +77,19 @@ if ('undefined' != typeof TlIqCustm && void 0 === TlIqCustm.languageSelectorFoot
 
 				jQuery('#languageSelector-footer').prepend(countrySelector);
 
-				setTimeout(function () {
-					TlIqCustm.poll(
-						function () {
-							return (
-								'195px' !==
-								jQuery(
-									'li#countrySelector a.js-dropdown-trigger[data-behavior="dropdown-trigger"]'
-								).css('width')
-							);
-						},
-						function () {
-							TlIqCustm.languageSelectorFooterPhase2.changeCSS();
-							TlIqCustm.languageSelectorFooterPhase2.setCookie(
-								TlIqCustm.languageSelectorFooterPhase2.cookie
-							);
-						},
-						function () {}
-					);
-				}, 500);
+				function checkCSS() {
+					console.log('checking CSS');
+					if (
+						jQuery('.aa-language-select-indicator').find('img').css('mix-blend-mode') !== 'multiply'
+					) {
+						TlIqCustm.languageSelectorFooterPhase2.changeCSS();
+						TlIqCustm.languageSelectorFooterPhase2.setCookie(
+							TlIqCustm.languageSelectorFooterPhase2.cookie
+						);
+						clearInterval(window.interval);
+					}
+				}
+				window.interval = setInterval(checkCSS, 500);
 			},
 
 			ataMain: function () {
